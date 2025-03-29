@@ -12,26 +12,31 @@ class Products {
 
     createCard(data) {
         const cardElemnt = document.createElement('div');
-
-        const img = document.createElement('img');
-        img.src = data.image; // ✅ Corrected typo
-        img.alt = data.alt;
-
-        cardElemnt.appendChild(img); 
-        const info=document.createElement('div');
-        const productName=document.createElement('h3');
-        const control=document.createElement('div');
-        const price=document.createElement('h3');
-        const button=document.createElement('button');
-
-        productName.innerText=data.name;
-        price.innerText=data.price;
-        button.innerText="+";
+        const img=this.productImg(data);
+        const infoElement=this.productInfo(data);
+        
+        cardElemnt.innerHTML=img; 
+        cardElemnt.innerHTML+=infoElement;
         this.parent.appendChild(cardElemnt);
     }
-    productImg(){
-        
+    productImg(data){
+        const {image , alt}=data;
+        const imgJsx =`<img alt=${alt} src=${image} />`;
+        return imgJsx;
     }
+    productInfo(data){
+        const {id,name,price}=data;
+        const infoJsx=`<div>
+        <h3>${name}</h3>
+
+        <div>
+        <span> ${price} </span>
+        <button data-id=${id}> + </button>
+        </div>
+        </div>`;
+        return infoJsx;
+    }
+
 }
 
 export default Products;
