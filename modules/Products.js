@@ -2,6 +2,7 @@ class Products {
     constructor(parent, productsData) {
         this.parent = parent;
         this.productsData = productsData;
+        this.parent.addEventListener('click',this);
     }
 
     showProducts() {
@@ -26,7 +27,7 @@ class Products {
     }
     productInfo(data){
         const {id,name,price}=data;
-        const infoJsx=`<div>
+        const infoJsx=`<div id="product-info">
         <h3>${name}</h3>
 
         <div>
@@ -35,6 +36,9 @@ class Products {
         </div>
         </div>`;
         return infoJsx;
+    }
+    handleEvent(){
+        console.log('clicked!')
     }
 
 }
