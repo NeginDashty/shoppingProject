@@ -1,7 +1,9 @@
 class Products {
-    constructor(parent, productsData) {
+    constructor(parent, productsData,cart) {
         this.parent = parent;
         this.productsData = productsData;
+        this.cart=cart;
+        //this => handelEvent**
         this.parent.addEventListener('click',this);
     }
 
@@ -38,7 +40,17 @@ class Products {
         return infoJsx;
     }
     handleEvent(){
-        console.log('clicked!')
+        const element=event.target;
+        
+        if (element.tagName === "BUTTON") {
+            this.addToCard(element.dataset.id)
+        }
+    }
+
+    addToCard(id){
+        const product = this.productsData.find(i => i.id === +id);
+        this.cart.products.push(id);
+
     }
 
 }
