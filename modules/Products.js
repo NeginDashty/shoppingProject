@@ -32,7 +32,7 @@ class Products {
         <h3>${name}</h3>
 
         <div>
-        <span> ${price} </span>
+        <span>$ ${price} </span>
         <button data-id=${id}> + </button>
         </div>
         </div>`;
@@ -49,7 +49,7 @@ class Products {
     addToCard(id) {
         const product = this.productsData.find(i => i.id === +id);
         if (product) {
-            this.cart.products.push(product);   
+            this.cart.products.push(product); 
             this.cart.showProducts(); 
         }
         

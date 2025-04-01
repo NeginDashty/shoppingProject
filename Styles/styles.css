@@ -97,13 +97,15 @@ padding: 12px;
     transform: all 0.2s ease-in; 
 };
 
-
+#cart{
+    text-align: center;
+}
 #cart h3{
     background-color: var(--color-primary);
     color: #fff;
     padding: 20px;
     text-align: center;
-    font-size: 1.5 rem;
+    font-size: 1.6 rem;
     border-radius: 25px;
     margin-bottom: 30px;
 };
