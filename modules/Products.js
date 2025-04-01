@@ -6,7 +6,6 @@ class Products {
         //this => handelEvent**
         this.parent.addEventListener('click',this);
     }
-
     showProducts() {
         this.productsData.forEach(product => {
             this.createCard(product);
