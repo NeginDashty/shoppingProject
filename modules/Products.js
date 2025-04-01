@@ -38,20 +38,23 @@ class Products {
         </div>`;
         return infoJsx;
     }
-    handleEvent(){
-        const element=event.target;
+    handleEvent(event) {  
+        const element = event.target;
         
         if (element.tagName === "BUTTON") {
-            this.addToCard(element.dataset.id)
+            this.addToCard(element.dataset.id); 
         }
     }
-
-    addToCard(id){
+    
+    addToCard(id) {
         const product = this.productsData.find(i => i.id === +id);
-        console.log(product)
-        this.cart.products.push(id);
-
+        if (product) {
+            this.cart.products.push(product);   
+            this.cart.showProducts(); 
+        }
+        
     }
+    
 
 }
 
