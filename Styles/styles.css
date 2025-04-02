@@ -115,7 +115,7 @@ padding: 12px;
 }
 
 
-#cart-lust h5{
+#cart-list h5{
     color: var(--color--error);
     border: 2px solid var(--color--error);
     padding: 40px 0;
