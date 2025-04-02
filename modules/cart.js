@@ -17,7 +17,7 @@ class Cart{
             const qty = this.products.filter((p) => p.id === product.id).length;
             this.createCard(product, qty);
         });
-    
+        this.calculateTotalPrice();
 
     }
     //data = array members which have been in Set
@@ -60,7 +60,7 @@ class Cart{
            <div>
            <button data-id=${id}> - </button>
            <span>${qty}</span>
-           <button data-id=${id}> + </button>
+           <button  data-id=${id}> + </button>
            </div>
            <button data-id=${id}> Remove </button>
         </div>
@@ -75,6 +75,7 @@ class Cart{
         switch (type) {
            case "+":
             this.increase(id);
+            console.log(id);
            break;
 
            case("-"):
@@ -103,7 +104,13 @@ class Cart{
         this.products=newProducts;
         this.showProducts();
     }
-
+    calculateTotalPrice(){
+        const total = this.products.reduce((acc, cur) => {
+            return acc + cur.price;
+        }, 0);
+        
+        this.price.innerText=`$ ${total}`;
+    }
 
 };
 
