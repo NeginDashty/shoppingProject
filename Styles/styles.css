@@ -114,7 +114,6 @@ padding: 12px;
     width: 330px;
 };
 
-
 #cart-list h5{
     color: var(--color--error);
     border: 2px solid var(--color--error);
